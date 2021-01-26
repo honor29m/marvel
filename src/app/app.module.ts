@@ -1,16 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent } from './app.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ErrorComponent } from './components/error/error.component';
+import { HomeComponent } from './components/home/home.component';
+import { ComicsComponent } from './components/comics/comics.component';
+import { CharactersComponent } from './components/characters/characters.component';
+import { CreatorsComponent } from './components/creators/creators.component';
+import { SeriesComponent } from './components/series/series.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    FooterComponent,
+    ErrorComponent,
+    HomeComponent,
+    ComicsComponent,
+    CharactersComponent,
+    CreatorsComponent,
+    SeriesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing
   ],
-  providers: [],
+  providers: [
+    appRoutingProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
