@@ -8,7 +8,6 @@ import { Global } from './global';
 export class CharacterService {
     
     public url: string;
-    public ts: string;
     public public_key: string;
     public hash: string;
 
@@ -16,7 +15,6 @@ export class CharacterService {
         private _http: HttpClient
     ) {
         this.url = Global.url;
-        this.ts = Global.ts;
         this.public_key = Global.public_key;
         this.hash = Global.hash;
     }
