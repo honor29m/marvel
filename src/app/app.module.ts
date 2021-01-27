@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -11,6 +12,7 @@ import { ComicsComponent } from './components/comics/comics.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CreatorsComponent } from './components/creators/creators.component';
 import { SeriesComponent } from './components/series/series.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SeriesComponent } from './components/series/series.component';
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     appRoutingProviders
