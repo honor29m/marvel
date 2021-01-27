@@ -13,6 +13,8 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CreatorsComponent } from './components/creators/creators.component';
 import { SeriesComponent } from './components/series/series.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@angular/cdk/layout';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     routing,
     BrowserAnimationsModule,
-    HttpClientModule
+    LayoutModule,
+    HttpClientModule,
   ],
   providers: [
     appRoutingProviders

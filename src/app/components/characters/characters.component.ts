@@ -9,6 +9,8 @@ import { CharacterService } from '../../services/character.service';
 })
 export class CharactersComponent implements OnInit {
 
+  public allCharacters:any;
+
   constructor(
     private _characterService: CharacterService
   ) { }
@@ -16,7 +18,8 @@ export class CharactersComponent implements OnInit {
   ngOnInit(): void {
     this._characterService.getCharacter().subscribe(
       response => {
-        console.log(response);
+        console.log(response.data.results);
+        this.allCharacters = response.data.results;
       },
       error => {
         console.log(error);     
