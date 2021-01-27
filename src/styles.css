@@ -1,11 +1,28 @@
 /* GENERAL */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: url("assets/img/paven.png");
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
 
 .clearfix{
     clear:both;
     float:none;
+}
+
+.content {
+    width: 80%;
+    /*margin-top: 100px;*/
+    padding-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+	color:#343a40;
 }
 
 /* MENU */
@@ -28,4 +45,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
     color: #ee171f;
+    font-size: 18px;
 }
