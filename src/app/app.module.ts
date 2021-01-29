@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -12,8 +14,11 @@ import { ComicsComponent } from './components/comics/comics.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CreatorsComponent } from './components/creators/creators.component';
 import { SeriesComponent } from './components/series/series.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchComponent } from './components/search/search.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { SearchPipe } from './pipes/search.pipe';
+
+
 
 
 @NgModule({
@@ -26,7 +31,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     ComicsComponent,
     CharactersComponent,
     CreatorsComponent,
-    SeriesComponent
+    SeriesComponent,
+    SearchComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     BrowserAnimationsModule,
     LayoutModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     appRoutingProviders

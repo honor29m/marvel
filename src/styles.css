@@ -46,6 +46,30 @@ body {
 	margin-left: 5%;
 }
 
+.card-marvel {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-marvel .card {
+    box-shadow: 0px 0px 7px 2px rgba(6, 12, 34, 0.98);
+}
+
+.card-marvel .card img {
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.btn-danger {
+    background-color:#ee171f;
+    border-color: #ee171f;
+}
+
+.button-card {
+    float: right;
+}
+
 /* MENU */
 .logo {
     width: 30%;
@@ -67,4 +91,24 @@ body {
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
     color: #ee171f;
     font-size: 18px;
+}
+
+/* SEARCH */
+.navbar-search {
+    margin: 10px;
+    margin-right: -20px;
+}
+
+/* ALPHABELT */
+.alphabet {
+    width: 85%;
+    margin-top: -56px;
+    margin-bottom: 10px;
+    margin-left: -15px;
+    margin-right: 0;
+    padding: 0;
+} 
+
+.alphabet form button {
+    margin-right: 1px;
 }

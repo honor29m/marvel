@@ -19,8 +19,12 @@ export class CharacterService {
         this.hash = Global.hash;
     }
 
-    getCharacter():Observable<any> {
-        return this._http.get(this.url+'characters'+'?'+'ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+    getCharacterAlls():Observable<any> {
+        return this._http.get(this.url+'characters'+'?'+'limit=100&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+    }
+    
+    getCharacter(value):Observable<any> {
+        return this._http.get(this.url+'characters'+'?'+'limit=100&'+'nameStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 }
 

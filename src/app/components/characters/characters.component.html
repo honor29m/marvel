@@ -1,29 +1,60 @@
 <div class="content">
-    <div class="titles">
-        <h1>Characters</h1>
-    </div>
-    <hr class="hr-titles">
+  <div class="titles">
+    <h1>Characters</h1>
+  </div>
+  <hr class="hr-titles">
 
-    <div >
-        <div>
-            <div  *ngFor="let character of allCharacters" style="float:left">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="card-img-top" alt="{{character.name}}">
-                    <div class="card-body">
-                      <h5 class="card-title">{{character.name}}</h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Cras justo odio</li>
-                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                      <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
-                  </div>
-            </div>
+  <app-search (search)="handleSearch($event)"></app-search>
+
+  <nav class="navbar navbar-light alphabet">
+    <form class="container-fluid justify-content-start">
+      <button class="btn btn-dark" (click)="getSearchCharacters('A')"> A </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('B')"> B </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('C')"> C </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('D')"> D </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('E')"> E </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('F')"> F </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('G')"> G </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('H')"> H </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('I')"> I </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('J')"> J </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('K')"> K </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('L')"> L </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('M')"> M </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('N')"> N </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('O')"> O </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('P')"> P </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('Q')"> Q </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('R')"> R </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('S')"> S </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('T')"> T </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('U')"> U </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('V')"> V </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('W')"> W </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('X')"> X </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('Y')"> Y </button>
+      <button class="btn btn-dark" (click)="getSearchCharacters('Z')"> Z </button>
+    </form>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div  *ngFor="let character of allCharacters | search:value_filter" class="card-marvel col-md-4">
+        <div class="card">
+          <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="card-img-top" alt="{{character.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{character.name}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Appearances in comics: {{character.comics.available}}</li>
+            <li class="list-group-item">Appearances in series: {{character.series.available}}</li>
+          </ul>
+          <div class="card-body">
+            <button class="btn btn-danger button-card" type="submit">Details</button>
+          </div>
         </div>
-
+      </div>
     </div>
+  </div>    
+
 </div>
