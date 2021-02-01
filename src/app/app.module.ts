@@ -17,6 +17,7 @@ import { SeriesComponent } from './components/series/series.component';
 import { SearchComponent } from './components/search/search.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SearchPipe } from './pipes/search.pipe';
+import { CharDetailsComponent } from './components/char-details/char-details.component';
 
 
 
@@ -33,7 +34,8 @@ import { SearchPipe } from './pipes/search.pipe';
     CreatorsComponent,
     SeriesComponent,
     SearchComponent,
-    SearchPipe
+    SearchPipe,
+    CharDetailsComponent
   ],
   imports: [
     BrowserModule,

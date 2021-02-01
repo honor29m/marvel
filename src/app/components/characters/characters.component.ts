@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { CharacterService } from '../../services/character.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-characters',
@@ -10,12 +11,18 @@ import { CharacterService } from '../../services/character.service';
 export class CharactersComponent implements OnInit {
 
   public allCharacters:any;
+  public characterDitails:any;
   public value_filter = '';
 
 
   constructor(
-    private _characterService: CharacterService
-  ) { }
+    private _characterService: CharacterService,
+    private _router: Router
+  ) { 
+    this.characterDitails = {
+      name: ''
+    }
+  }
 
   ngOnInit(): void {
     this.getallCharacters();
@@ -56,18 +63,15 @@ export class CharactersComponent implements OnInit {
     )
   }
 
- /* searchAlphabet(value) {
-    console.log('Valor: '+value)
-    this._characterService.getCharacter(value).subscribe(
+  goToDetails(value) {
+    console.log('valor'+value);
+    this._characterService.getCharacterDitails(value).subscribe(
       response => {
         console.log(response);
-        this.allCharacters = response.data.results;
-      },
-      error => {
-        console.log(error);     
+        this.characterDitails = response.data.results;
       }
     )
-  }*/
+  }
 
 
 }

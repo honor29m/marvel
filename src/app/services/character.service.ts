@@ -26,5 +26,9 @@ export class CharacterService {
     getCharacter(value):Observable<any> {
         return this._http.get(this.url+'characters'+'?'+'limit=100&'+'nameStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
+
+    getCharacterDitails(value):Observable<any> {
+        return this._http.get(this.url+'characters/'+value+'?limit=100&ts=1&apikey='+this.public_key+'&hash='+this.hash);
+    }
 }
 
