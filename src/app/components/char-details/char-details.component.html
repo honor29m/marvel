@@ -1,1 +1,9 @@
 <p>char-details works!</p>
+
+<div  *ngFor="let comic of comics " class="card-marvel col-md-4">
+    <ul>
+        <li>{{comic.name}}</li>
+    </ul>
+</div>
+
+<div class="col-md-4">page count: {{comicsDitails.pageCount}}</div>

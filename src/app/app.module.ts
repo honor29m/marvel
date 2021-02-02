@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -22,6 +23,7 @@ import { CharDetailsComponent } from './components/char-details/char-details.com
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,7 @@ import { CharDetailsComponent } from './components/char-details/char-details.com
     SeriesComponent,
     SearchComponent,
     SearchPipe,
-    CharDetailsComponent
+    CharDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { CharDetailsComponent } from './components/char-details/char-details.com
     LayoutModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     appRoutingProviders
