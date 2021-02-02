@@ -1,1 +1,117 @@
-<p>creators works!</p>
+<div class="content">
+    <div class="titles">
+      <h1>Creators</h1>
+    </div>
+    <hr class="hr-titles">
+
+    <app-search-creator (search)="handleSearch($event)"></app-search-creator>
+
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let creator of allCrators | searchCreator:value_filter" class="card-marvel col-md-4">
+                <div class="card">
+                    <img src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" class="card-img-top"
+                        alt="{{creator.name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{creator.fullName}}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Participations in comics: {{creator.comics.available}}</li>
+                        <li class="list-group-item">Participations in series: {{creator.series.available}}</li>
+                    </ul>
+                    <div class="card-body">
+                        <button (click)="open(creatorModal)" role="button"
+                            class="btn btn-danger button-card">Details</button>
+    
+ 
+                        <ng-template #creatorModal let-modal>
+    
+                            <div class="modal-header">
+    
+                                <h4 class="modal-title" id="modal-basic-title">{{creator.fullName}}</h4>
+    
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+    
+                                    <span aria-hidden="true">×</span>
+    
+                                </button>
+    
+                            </div>
+    
+                            <div class="modal-body">
+    
+    
+                                <div class="card mb-3 card-modal">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img class="img-card-modal"
+                                                src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}"
+                                                alt="{{creator.name}}">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body body-card-modal">
+                                                <div class="row">
+                                                    <p *ngIf="creator.firstName !=''; else notFirstName"><strong>First name:</strong> {{creator.firstName}}</p>  
+                                                    <ng-template #notFirstName><strong>First name:</strong> Is not available.</ng-template>    
+                                                </div>
+                                                <div class="row">    
+                                                    <p *ngIf="creator.middleName !=''; else notmiddleName"><strong>Middle name:</strong> {{creator.middleName}}</p>  
+                                                    <ng-template #notmiddleName><strong>Middle name:</strong> Is not available.</ng-template>    
+                                                </div>
+                                                <div class="row">
+                                                    <p *ngIf="creator.lastName !=''; else notlastName"><strong>Last name:</strong> {{creator.lastName}}</p>  
+                                                    <ng-template #notlastName><strong>Last name:</strong> Is not available.</ng-template>
+                                                </div>   
+                                                <h6 class="appearence"><strong>Participations in comics</strong></h6>
+                                                <div class="row row-modal">
+                                                    <div *ngIf="creator.comics.available !=0; else comicMessage ">
+                                                        <div class="row">
+                                                            <div *ngFor="let comic of creator.comics.items"
+                                                                class="col-md-4">
+                                                                <ul>
+                                                                    <li>{{comic.name}}</li>
+                                                                </ul>                                  
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <ng-template #comicMessage>The creator did not participate in any comic.
+                                                    </ng-template>
+                                                </div>
+                                                <h6 class="appearence"><strong>Participations in series</strong></h6>
+                                                <div class="row row-modal">
+                                                    <div *ngIf="creator.series.available != 0; else seriesMessage">
+                                                        <div class="row">
+                                                            <div *ngFor="let serie of creator.series.items"
+                                                                class="col-md-4">
+                                                                <ul>
+                                                                    <li>{{serie.name}}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ng-template #seriesMessage>The creator did not participate in any series.
+                                                    </ng-template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+    
+                                <button type="button" class="btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Close</button>
+    
+                            </div>
+    
+                        </ng-template>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    

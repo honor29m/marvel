@@ -39,9 +39,10 @@
 
   <div class="container">
     <div class="row">
-      <div  *ngFor="let character of allCharacters | search:value_filter" class="card-marvel col-md-4">
+      <div *ngFor="let character of allCharacters | search:value_filter" class="card-marvel col-md-4">
         <div class="card">
-          <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="card-img-top" alt="{{character.name}}">
+          <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="card-img-top"
+            alt="{{character.name}}">
           <div class="card-body">
             <h5 class="card-title">{{character.name}}</h5>
           </div>
@@ -50,83 +51,86 @@
             <li class="list-group-item">Appearances in series: {{character.series.available}}</li>
           </ul>
           <div class="card-body">
-          <button (click)="open(characterModal)" role="button" class="btn btn-danger button-card">Details</button>
-        
-
-        <ng-template #characterModal let-modal>
-
-          <div class="modal-header">
-        
-            <h4 class="modal-title" id="modal-basic-title">{{character.name}}</h4>
-        
-            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        
-              <span aria-hidden="true">×</span>
-        
-            </button>
-        
-          </div>
-        
-          <div class="modal-body">
-
-
-            <div class="card mb-3 card-modal" >
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img class="img-card-modal" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.name}}">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body body-card-modal">
-                    <h5 class="card-title">{{character.name}}</h5>
-                    <p *ngIf="character.description != ''; else notAvailable"><strong>Description:</strong> {{character.description}}</p>
-                    <ng-template #notAvailable><strong>Description:</strong> Description is not available</ng-template>
-<!--                    <app-char-details [comics]="character.comics.items"></app-char-details>-->
-                    <h6 class="appearence"><strong>Appearances in comics</strong></h6>
-                    <div class="row row-modal">
-                      <div *ngIf="character.comics.available !=0; else comicMessage ">  
-                        <div *ngFor="let comic of character.comics.items" class="card-marvel col-md-4">
-                          <ul>
-                            <li>{{comic.name}}</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <ng-template #comicMessage>The character does not appear in any comic</ng-template>
+            <button (click)="open(characterModal)" role="button" class="btn btn-danger button-card">Details</button>
+  
+  
+            <ng-template #characterModal let-modal>
+  
+              <div class="modal-header">
+  
+                <h4 class="modal-title" id="modal-basic-title">{{character.name}}</h4>
+  
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+  
+                  <span aria-hidden="true">×</span>
+  
+                </button>
+  
+              </div>
+  
+              <div class="modal-body">
+  
+  
+                <div class="card mb-3 card-modal">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img class="img-card-modal" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+                        alt="{{character.name}}">
                     </div>
-                    <h6 class="appearence"><strong>Appearances in series</strong></h6>
-                    <div class="row row-modal">
-                      <div *ngIf="character.series.available != 0; else seriesMessage">
-                        <div *ngFor="let serie of character.series.items" class="card-marvel col-md-4">
-                          <ul>
-                            <li>{{serie.name}}</li>
-                          </ul>
+                    <div class="col-md-8">
+                      <div class="card-body body-card-modal">
+                        <h5 class="card-title">{{character.name}}</h5>
+                        <p *ngIf="character.description != ''; else notAvailable"><strong>Description:</strong>
+                          {{character.description}}</p>
+                        <ng-template #notAvailable><strong>Description:</strong> Description is not available
+                        </ng-template>
+                        <!--                    <app-char-details [comics]="character.comics.items"></app-char-details>-->
+                        <h6 class="appearence"><strong>Appearances in comics</strong></h6>
+                        <div class="row row-modal">
+                          <div *ngIf="character.comics.available !=0; else comicMessage ">
+                            <div *ngFor="let comic of character.comics.items" class="card-marvel col-md-4">
+                              <ul>
+                                <li>{{comic.name}}</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <ng-template #comicMessage>The character does not appear in any comic</ng-template>
+                        </div>
+                        <h6 class="appearence"><strong>Appearances in series</strong></h6>
+                        <div class="row row-modal">
+                          <div *ngIf="character.series.available != 0; else seriesMessage">
+                            <div *ngFor="let serie of character.series.items" class="card-marvel col-md-4">
+                              <ul>
+                                <li>{{serie.name}}</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <ng-template #seriesMessage>The character does not appear in any series</ng-template>
                         </div>
                       </div>
-                      <ng-template #seriesMessage>The character does not appear in any series</ng-template>
-                    </div>  
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-        
-            
-
-            
-        
   
-        
-          <div class="modal-footer">
-        
-            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-        
-          </div>
-        
-        </ng-template>
-     
+  
+  
+  
+  
+  
+  
+              <div class="modal-footer">
+  
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  
+              </div>
+  
+            </ng-template>
+  
           </div>
         </div>
       </div>
     </div>
-  </div>    
+  </div>
 
 </div>
