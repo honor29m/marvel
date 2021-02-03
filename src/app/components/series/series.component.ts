@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SeriesService } from '../../services/series.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-series',
@@ -19,7 +18,6 @@ export class SeriesComponent implements OnInit {
 
   constructor(
     private _seriesService: SeriesService,
-    private _router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +27,6 @@ export class SeriesComponent implements OnInit {
   getallSeries() {
     this._seriesService.getSeriesAll().subscribe(
       response => {
-        console.log(response.data.results);
         this.allSeries = response.data.results;
       },
       error => {
@@ -39,7 +36,6 @@ export class SeriesComponent implements OnInit {
   }
 
   handleSearch(value:string) {
-    console.log(value);
     this.value_filter = value;
     
     if (this.value_filter == '') {
@@ -52,7 +48,7 @@ export class SeriesComponent implements OnInit {
   getSearchSeries(value) {
     this._seriesService.getSeries(value).subscribe(
       response => {
-        console.log(response.data.results);
+
         this.allSeries = response.data.results;
       },
       error => {
@@ -68,7 +64,6 @@ export class SeriesComponent implements OnInit {
     } else {
       this._seriesService.getTypeSeres(value).subscribe(
         response => {
-          console.log(response.data.results);
           this.allSeries = response.data.results;
         },
         error => {

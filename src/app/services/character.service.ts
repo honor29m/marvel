@@ -20,15 +20,15 @@ export class CharacterService {
     }
 
     getCharacterAlls():Observable<any> {
-        return this._http.get(this.url+'characters'+'?'+'limit=100&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'characters'+'?'+'limit=99&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
     
     getCharacter(value):Observable<any> {
-        return this._http.get(this.url+'characters'+'?'+'limit=100&'+'nameStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'characters'+'?'+'limit=99&'+'nameStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 
     getCharacterDitails(value):Observable<any> {
-        return this._http.get(this.url+'characters/'+value+'?limit=100&ts=1&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'characters/'+value+'?limit=99&ts=1&apikey='+this.public_key+'&hash='+this.hash);
     }
 
     getComics(urlcomic):Observable<any> {

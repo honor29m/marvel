@@ -19,10 +19,10 @@ export class CreatorService {
     }
 
     getCreatorAll():Observable<any> {
-        return this._http.get(this.url+'creators'+'?'+'limit=100&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'creators'+'?'+'limit=99&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 
     getCrator(value):Observable<any> {
-        return this._http.get(this.url+'creators'+'?'+'limit=100&'+'nameStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'creators'+'?'+'limit=99&'+'nameStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 }

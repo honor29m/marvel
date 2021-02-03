@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CreatorService } from '../../services/creator.service';
-import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -17,7 +16,6 @@ export class CreatorsComponent implements OnInit {
 
   constructor(
     private _creatorService: CreatorService,
-    private _router: Router,
     private modalService: NgbModal
   ) { }
 
@@ -28,7 +26,6 @@ export class CreatorsComponent implements OnInit {
   getallCreator() {
     this._creatorService.getCreatorAll().subscribe(
       response => {
-        console.log(response.data.results);
         this.allCrators = response.data.results;
       },
       error => {
@@ -38,7 +35,6 @@ export class CreatorsComponent implements OnInit {
   }
 
   handleSearch(value:string) {
-    console.log(value);
     this.value_filter = value;
     
     if (this.value_filter == '') {
@@ -51,7 +47,6 @@ export class CreatorsComponent implements OnInit {
   getSearchCharacters(value) {
     this._creatorService.getCrator(value).subscribe(
       response => {
-        console.log(response.data.results);
         this.allCrators = response.data.results;
       },
       error => {

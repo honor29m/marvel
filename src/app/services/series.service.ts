@@ -19,14 +19,14 @@ export class SeriesService {
     }
 
     getSeriesAll():Observable<any> {
-        return this._http.get(this.url+'series'+'?'+'limit=100&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'series'+'?'+'limit=99&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 
     getSeries(value):Observable<any> {
-        return this._http.get(this.url+'series'+'?'+'limit=100&'+'titleStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'series'+'?'+'limit=99&'+'titleStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 
     getTypeSeres(value):Observable<any> {
-        return this._http.get(this.url+'series'+'?'+'limit=100&'+'seriesType='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'series'+'?'+'limit=99&'+'seriesType='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 }

@@ -19,14 +19,14 @@ export class ComicService {
     }
 
     getComicsAlls():Observable<any> {
-        return this._http.get(this.url+'comics'+'?'+'limit=100&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'comics'+'?'+'limit=99&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 
     getComic(value):Observable<any> {
-        return this._http.get(this.url+'comics'+'?'+'limit=100&'+'titleStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'comics'+'?'+'limit=99&'+'titleStartsWith='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 
     getComicOrder(value):Observable<any> {
-        return this._http.get(this.url+'comics'+'?'+'limit=100&'+'orderBy='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
+        return this._http.get(this.url+'comics'+'?'+'limit=99&'+'orderBy='+value+'&ts=1'+'&apikey='+this.public_key+'&hash='+this.hash);
     }
 }

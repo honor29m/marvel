@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { CharacterService } from '../../services/character.service';
-import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -12,21 +11,14 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class CharactersComponent implements OnInit {
 
   public allCharacters:any;
-  public characterDitails:any;
   public value_filter = '';
-  title = "appBootstrap";
   closeResult: string;
 
 
   constructor(
     private _characterService: CharacterService,
-    private _router: Router,
     private modalService: NgbModal
-  ) { 
-    this.characterDitails = {
-      name: ''
-    }
-  }
+  ) { }
 
   ngOnInit(): void {
     this.getallCharacters();
@@ -46,7 +38,6 @@ export class CharactersComponent implements OnInit {
   getallCharacters() {
     this._characterService.getCharacterAlls().subscribe(
       response => {
-        console.log(response.data.results);
         this.allCharacters = response.data.results;
       },
       error => {
@@ -58,23 +49,9 @@ export class CharactersComponent implements OnInit {
   getSearchCharacters(value) {
     this._characterService.getCharacter(value).subscribe(
       response => {
-        console.log(response.data.results);
         this.allCharacters = response.data.results;
       },
       error => {
-        console.log(error);     
-      }
-    )
-  }
-
-  goToDetails(value,content) {
-    console.log('valor'+value);
-    this._characterService.getCharacterDitails(value).subscribe(
-      response => {
-        this.characterDitails = response.data.results;
-        console.log(this.characterDitails);
-        
-      }, error => {
         console.log(error);     
       }
     )

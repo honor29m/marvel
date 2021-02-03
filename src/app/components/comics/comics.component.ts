@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComicService } from '../../services/comic.service';
-import { Router } from '@angular/router';
+
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -21,7 +21,6 @@ export class ComicsComponent implements OnInit {
 
   constructor(
     private _comicService: ComicService,
-    private _router: Router,
     private modalService: NgbModal
   ) { }
 
@@ -32,7 +31,6 @@ export class ComicsComponent implements OnInit {
   getComicsAlls() {
     this._comicService.getComicsAlls().subscribe(
       response => {
-        console.log(response.data.results);
         this.allComics = response.data.results;
       },
       error => {
@@ -44,7 +42,6 @@ export class ComicsComponent implements OnInit {
   getSearchComic(value) {
     this._comicService.getComic(value).subscribe(
       response => {
-        console.log(response.data.results);
         this.allComics = response.data.results;
       },
       error => {
@@ -59,7 +56,6 @@ export class ComicsComponent implements OnInit {
     } else {
       this._comicService.getComicOrder(value).subscribe(
         response => {
-          console.log(response.data.results);
           this.allComics = response.data.results;
         },
         error => {
@@ -70,9 +66,7 @@ export class ComicsComponent implements OnInit {
   }
 
   handleSearch(value:string) {
-    console.log(value);
     this.value_filter = value;
-    
     if (this.value_filter == '') {
       this.getComicsAlls();
     } else {

@@ -11,7 +11,6 @@
             <div class="form-group col-md-4 div-type">
                 <label for="selected">Filter: Type </label>
                 <select class="form-control" [(ngModel)]="selected" (ngModelChange)="getTypeSeries(selected)" name="selected" class="select-type">
-                    <option [value]="null">Filter: Type</option>
                     <option *ngFor="let option of options" [value]="option">
                         {{option}}                    
                     </option>  
