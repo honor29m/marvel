@@ -1,1 +1,53 @@
-<p>series works!</p>
+<div class="content">
+    <div class="titles">
+      <h1>Series</h1>
+    </div>
+    <hr class="hr-titles">
+
+    <app-search-series (search)="handleSearch($event)"></app-search-series>
+
+    <nav class="navbar navbar-light alphabet">
+        <form class="container-fluid justify-content-start">
+            <div class="form-group col-md-4 div-type">
+                <label for="selected">Filter: Type </label>
+                <select class="form-control" [(ngModel)]="selected" (ngModelChange)="getTypeSeries(selected)" name="selected" class="select-type">
+                    <option [value]="null">Filter: Type</option>
+                    <option *ngFor="let option of options" [value]="option">
+                        {{option}}                    
+                    </option>  
+                </select>
+            </div>
+        </form>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let series of allSeries | searchSeries:value_filter" class="card-marvel col-md-4">
+                <div class="card">
+                    <img src="{{series.thumbnail.path}}.{{series.thumbnail.extension}}" class="card-img-top"
+                        alt="{{series.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{series.title}}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li *ngIf=" series.creators.available !=0" class="list-group-item">   
+                            <div *ngFor="let creator of series.creators.items">
+                                <p *ngIf="creator.role == 'writer'">Writer: {{creator.name}}</p>
+                            </div>
+                        </li>    
+                        <li *ngIf="series.creators.available == 0" class="list-group-item">Writer: Not available.</li>    
+                        <li class="list-group-item">Start year: {{series.startYear}}</li>
+                        <li class="list-group-item">End year: {{series.endYear}}</li>
+                        <li *ngIf="series.rating != ''" class="list-group-item">Rating: {{series.rating }}</li>
+                        <li *ngIf="series.rating == ''" class="list-group-item">Rating: Not available.</li>
+                        <li *ngIf="series.type != ''" class="list-group-item">Type: {{series.type}}</li>
+                        <li *ngIf="series.type == ''" class="list-group-item">Type: Not available.</li>
+                        <li *ngIf="series.description != null" class="list-group-item">Description: {{series.description}}</li>
+                        <li *ngIf="series.description == null" class="list-group-item">Description: Not available.</li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    

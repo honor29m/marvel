@@ -21,6 +21,8 @@ import { SearchPipe } from './pipes/search.pipe';
 import { CharDetailsComponent } from './components/char-details/char-details.component';
 import { SearchCreatorComponent } from './components/search-creator/search-creator.component';
 import { SearchCreatorPipe } from './pipes/search-creator.pipe';
+import { SearchSeriesComponent } from './components/search-series/search-series.component';
+import { SearchSeriesPipe } from './pipes/search-series.pipe';
 
 
 
@@ -42,6 +44,8 @@ import { SearchCreatorPipe } from './pipes/search-creator.pipe';
     CharDetailsComponent,
     SearchCreatorComponent,
     SearchCreatorPipe,
+    SearchSeriesComponent,
+    SearchSeriesPipe,
   ],
   imports: [
     BrowserModule,

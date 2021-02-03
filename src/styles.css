@@ -114,6 +114,15 @@ body {
     padding: 3px 10px;
 }
 
+/* SELECTED */
+.select-type {
+    margin-left: 10px;
+}
+
+.div-type {
+    margin-left: 70%;
+}
+
 /* MODAL */
 .card-modal {
     width: 80%;
