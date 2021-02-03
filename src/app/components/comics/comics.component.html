@@ -1,1 +1,138 @@
-<p>comics works!</p>
+<div class="content">
+    <div class="titles">
+      <h1>Comics</h1>
+    </div>
+    <hr class="hr-titles">
+  
+    <app-search (search)="handleSearch($event)"></app-search>
+
+    <nav class="navbar navbar-light alphabet">
+        <form class="container-fluid justify-content-start">
+            <div class="form-group col-md-4 div-title">
+                <label for="selected">Filter: Type </label>
+                <select class="form-control" [(ngModel)]="selected" (ngModelChange)="getOrder(selected)" name="selected" class="select-type">
+                    <option *ngFor="let option of options" [value]="option.value">
+                        {{option.name}}                    
+                    </option>  
+                </select>
+            </div>
+        </form>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let comic of allComics | searchComic:value_filter" class="card-marvel col-md-4">
+                <div class="card">
+                    <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" class="card-img-top"
+                        alt="{{comic.name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{comic.title}}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Writer: 
+                            <div *ngIf=" comic.creators.available !=0">   
+                                <div *ngFor="let creator of comic.creators.items">
+                                    <p *ngIf="creator.role == 'writer'"> {{creator.name}}</p>
+                                </div>
+                            </div>    
+                            <div *ngIf="comic.creators.available == 0" class="list-group-item"> Not available.</div>  
+                        </li>
+                        <li class="list-group-item">Penciller(cover): 
+                            <div *ngIf=" comic.creators.available !=0" class="list-group-item">   
+                                <div *ngFor="let creator of comic.creators.items">
+                                    <p *ngIf="creator.role == 'penciller (cover)'"> {{creator.name}}</p>
+                                </div>
+                            </div>    
+                            <div *ngIf="comic.creators.available == 0" class="list-group-item"> Not available.</div> 
+                        </li>    
+                        <li class="list-group-item">Price: {{comic.prices[0].price}}</li>
+                        <li *ngIf="comic.description != null" class="list-group-item">Description: {{comic.description}}</li>
+                        <li *ngIf="comic.description == null" class="list-group-item">Description: Not available.</li>
+                    </ul>
+                    <div class="card-body">
+                        <button (click)="open(comicModal)" role="button" class="btn btn-danger button-card">Details</button>
+
+    
+                        <ng-template #comicModal let-modal>
+    
+                            <div class="modal-header">
+    
+                                <h4 class="modal-title" id="modal-basic-title">{{comic.title}}</h4>
+    
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+    
+                                    <span aria-hidden="true">×</span>
+    
+                                </button>
+    
+                            </div>
+    
+                            <div class="modal-body">
+    
+    
+                                <div class="card mb-3 card-modal">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img class="img-card-modal"
+                                                src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
+                                                alt="{{comic.name}}">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body body-card-modal">
+                                                <h5 class="card-title">{{comic.title}}</h5>
+                                                <p *ngIf="comic.description != null; else notAvailable">
+                                                    <strong>Description:</strong>
+                                                    {{comic.description}}</p>
+                                                <ng-template #notAvailable><strong>Description:</strong> Description is not
+                                                    available
+                                                </ng-template>
+
+                                                <p><strong>Price: </strong> {{comic.prices[0].price}} </p>
+                                               
+                                                <h6 class="appearence"><strong>Characters in comics</strong></h6>
+                                                <div class="row row-modal">
+                                                    <div *ngIf="comic.characters.available !=0; else comicMessage ">
+                                                        <div *ngFor="let character of comic.characters.items"
+                                                            class="card-marvel col-md-4">
+                                                            <ul>
+                                                                <li>{{character.name}}</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <ng-template #comicMessage>The characters is not available.
+                                                    </ng-template>
+                                                </div>
+                                                <h6 class="appearence"><strong>Creators of the comic</strong></h6>
+                                                <div class="row row-modal">
+                                                    <div *ngIf="comic.creators.available != 0; else seriesMessage">
+                                                        <div *ngFor="let creator of comic.creators.items"
+                                                            class="card-marvel col-md-4">
+                                                            <ul>
+                                                                <li><u>Name:</u> {{creator.name}} <br> <u>Role: </u>{{creator.role}} </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <ng-template #seriesMessage>The comic does not appear in any series
+                                                    </ng-template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+    
+                                <button type="button" class="btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Close</button>
+    
+                            </div>
+    
+                        </ng-template>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

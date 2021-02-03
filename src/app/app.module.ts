@@ -23,6 +23,8 @@ import { SearchCreatorComponent } from './components/search-creator/search-creat
 import { SearchCreatorPipe } from './pipes/search-creator.pipe';
 import { SearchSeriesComponent } from './components/search-series/search-series.component';
 import { SearchSeriesPipe } from './pipes/search-series.pipe';
+import { SearchComicComponent } from './components/search-comic/search-comic.component';
+import { SearchComicPipe } from './pipes/search-comic.pipe';
 
 
 
@@ -46,6 +48,8 @@ import { SearchSeriesPipe } from './pipes/search-series.pipe';
     SearchCreatorPipe,
     SearchSeriesComponent,
     SearchSeriesPipe,
+    SearchComicComponent,
+    SearchComicPipe,
   ],
   imports: [
     BrowserModule,
