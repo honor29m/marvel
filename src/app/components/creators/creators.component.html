@@ -11,7 +11,7 @@
             <div *ngFor="let creator of allCrators | searchCreator:value_filter" class="card-marvel col-md-4">
                 <div class="card">
                     <img src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" class="card-img-top"
-                        alt="{{creator.name}}">
+                        alt="{{creator.fullName}}">
                     <div class="card-body">
                         <h5 class="card-title">{{creator.fullName}}</h5>
                     </div>

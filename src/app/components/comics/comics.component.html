@@ -9,7 +9,7 @@
     <nav class="navbar navbar-light alphabet">
         <form class="container-fluid justify-content-start">
             <div class="form-group col-md-4 div-title">
-                <label for="selected">Filter: Type </label>
+                <label for="selected">Filter: Title </label>
                 <select class="form-control" [(ngModel)]="selected" (ngModelChange)="getOrder(selected)" name="selected" class="select-type">
                     <option *ngFor="let option of options" [value]="option.value">
                         {{option.name}}                    
@@ -24,7 +24,7 @@
             <div *ngFor="let comic of allComics | searchComic:value_filter" class="card-marvel col-md-4">
                 <div class="card">
                     <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" class="card-img-top"
-                        alt="{{comic.name}}">
+                        alt="{{comic.title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{comic.title}}</h5>
                     </div>
