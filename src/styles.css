@@ -157,3 +157,17 @@ body {
 .row-modal ul li {
     text-align: left;
 }
+
+
+/* FOOTER */
+.footer {
+    padding-top: 10px;
+    margin-top: 10px;
+	float: left;
+	color: white;
+}
+
+.img-footer{
+	height: 30px;
+	margin-left: 5px;
+}
